@@ -42,6 +42,16 @@ function sendMail(text: string): Observable<SentMessageInfo> {
 
 function makeAbendsenceText(absences: Absence[]): string {
   const lines = absences.map((absence) => {
+    let halfDay = "";
+
+    if (absence.days.length === 1 && absence.days[0].value === 0.5) {
+      const day = absence.days[0];
+
+      DateTime.fromISO(day.startTime).hour <= 1
+        ? (halfDay = "Vormittags ")
+        : (halfDay = "Nachmittags ");
+    }
+
     const lastDayStart = absence.days[absence.days.length - 1].date;
     const isOnlyOneDay = absence.start === lastDayStart;
     const isTodayTheLastDay = isOnlyOneDay || lastDayStart === startOfTodayIso;
@@ -57,7 +67,7 @@ function makeAbendsenceText(absences: Absence[]): string {
       ? ` - Vertretung: ${absence.substitute.name}`
       : "";
 
-    return `<li>${absence.assignedTo.name} (${absence.reason.name}) ${until} ${substitution}</li>`;
+    return `<li>${absence.assignedTo.name} (${halfDay}${absence.reason.name}) ${until} ${substitution}</li>`;
   });
 
   return ["<ul>", ...lines, "</ul>"].join("");

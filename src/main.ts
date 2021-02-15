@@ -41,6 +41,10 @@ function sendMail(text: string): Observable<SentMessageInfo> {
 }
 
 function makeAbendsenceText(absences: Absence[]): string {
+  if (absences.length === 0) {
+    return "Es sind alle da 🎉";
+  }
+
   const lines = absences.map((absence) => {
     let halfDay = "";
 
@@ -90,7 +94,6 @@ function getAbsences(): Observable<Absence[]> {
     relations: ["assignedToId", "reasonId", "substituteId"],
   };
 
-  // todo dotEnv
   const credentials = {
     id: process.env.ABSENCE_ID,
     key: process.env.ABSENCE_KEY,

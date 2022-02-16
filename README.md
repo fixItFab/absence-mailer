@@ -1,9 +1,9 @@
 # Absence-Mailer
 
 ## Preparation
-
-1. `npm i`
-2. Create a `.env` file (`cp ./.env.template ./.env`) and enter your data
+1. Create a `.env` file (`cp ./.env.template ./.env`) and enter your data
+2. Create a `crontab` file (`cp ./crontab.template ./crontab`) and enter your desired execution time
+3. Run Docker container with `docker compose up -d --build`
 
 ## NPM Scripts
 

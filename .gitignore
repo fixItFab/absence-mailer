@@ -2,3 +2,5 @@
 **/dist/
 .env
 /temp
+.DS_Store
+crontab

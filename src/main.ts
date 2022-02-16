@@ -118,3 +118,8 @@ function getAbsences(): Observable<Absence[]> {
 
   return absence$.pipe(map(({ data }) => data.data));
 }
+
+process.on("uncaughtException", function (e) {
+  console.log(new Date().toString(), e.stack || e);
+  process.exit(1);
+});

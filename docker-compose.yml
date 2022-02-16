@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  absence-mailer:
+    build: .
+    container_name: absence-mailer
+    environment:
+      ABSENCE_ID: ${ABSENCE_ID}
+      ABSENCE_KEY: ${ABSENCE_KEY}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_AUTH_USER: ${SMTP_AUTH_USER}
+      SMTP_AUTH_PASS: ${SMTP_AUTH_PASS}
+      MAIL_FROM: ${MAIL_FROM}
+      MAIL_TO: ${MAIL_TO}

@@ -26,14 +26,14 @@ WORKDIR /app
 COPY --from=builder /app/dist .
 COPY --from=builder /app/node_modules ./node_modules
 
-ENV ABSENCE_ID=
-ENV ABSENCE_KEY=
-ENV SMTP_HOST=
-ENV SMTP_PORT=587
-ENV SMTP_AUTH_USER=
-ENV SMTP_AUTH_PASS=
-ENV MAIL_FROM=
-ENV MAIL_TO=
+ENV ABSENCE_ID= \
+    ABSENCE_KEY=  \
+    SMTP_HOST= \
+    SMTP_PORT=58= \
+    SMTP_AUTH_USER= \
+    SMTP_AUTH_PASS= \
+    MAIL_FROM= \
+    MAIL_TO= \
+    CRON_EXPRESSION= 
 
-COPY crontab /etc/crontabs/root
-CMD ["crond", "-l", "2", "-f"]
+CMD ["node", "main.js"]

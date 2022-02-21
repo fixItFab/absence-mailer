@@ -3,6 +3,7 @@ services:
   absence-mailer:
     build: .
     container_name: absence-mailer
+    restart: always
     environment:
       ABSENCE_ID: ${ABSENCE_ID}
       ABSENCE_KEY: ${ABSENCE_KEY}
@@ -11,3 +12,4 @@ services:
       SMTP_AUTH_PASS: ${SMTP_AUTH_PASS}
       MAIL_FROM: ${MAIL_FROM}
       MAIL_TO: ${MAIL_TO}
+      CRON_EXPRESSION: ${CRON_EXPRESSION}

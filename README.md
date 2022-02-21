@@ -1,9 +1,20 @@
 # Absence-Mailer
 
 ## Preparation
-1. Create a `.env` file (`cp ./.env.template ./.env`) and enter your data
-2. Create a `crontab` file (`cp ./crontab.template ./crontab`) and enter your desired execution time
-3. Run Docker container with `docker compose up -d --build`
+Create a `.env` file (`cp ./.env.template ./.env`) and enter your data
+
+## Config (.env file)
+If you want only run the Absence Mailer once, does not set CRON EXPRESSION or leave it blank.  
+For periodic execution please set CRON EXPRESSION
+
+## Run Absence Mailer
+Local =>  `npm start`  
+
+ or  
+
+Docker =>  `docker compose up -d`
+
+## 
 
 ## NPM Scripts
 

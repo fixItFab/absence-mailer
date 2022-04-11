@@ -1,6 +1,6 @@
 FROM node:17.5.0-alpine AS builder
 
-RUN  apk update && apk add curl bash && rm -rf /var/cache/apk/*
+RUN  apk update && apk add bash && rm -rf /var/cache/apk/*
 
 WORKDIR /app
 
@@ -19,6 +19,8 @@ RUN npm prune --production && \
 ################################################
 
 FROM node:17.5.0-alpine
+
+RUN  apk update && apk add tzdata && rm -rf /var/cache/apk/*
 
 WORKDIR /app
 

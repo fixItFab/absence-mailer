@@ -4,6 +4,9 @@ services:
     build: .
     container_name: absence-mailer
     restart: always
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
     environment:
       ABSENCE_ID: ${ABSENCE_ID}
       ABSENCE_KEY: ${ABSENCE_KEY}

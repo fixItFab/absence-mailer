@@ -36,6 +36,7 @@ ENV ABSENCE_ID= \
     SMTP_AUTH_PASS= \
     MAIL_FROM= \
     MAIL_TO= \
-    CRON_EXPRESSION= 
+    CRON_EXPRESSION= \
+    CRON_TIME_ZONE= 
 
 CMD ["node", "main.js"]

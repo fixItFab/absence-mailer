@@ -11,7 +11,7 @@ const absenceService = new AbsenceService("de");
 
 // periodically execution or only once
 const trigger$ = process.env.CRON_EXPRESSION
-  ? cron(process.env.CRON_EXPRESSION)
+  ? cron(process.env.CRON_EXPRESSION, process.env.CRON_TIME_ZONE || "UTC")
   : of().pipe(startWith(""), take(1));
 
 trigger$
